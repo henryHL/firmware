@@ -23,4 +23,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: henry-meshtastic-firmware
-          path: .pio/build/                 # Uploads the compiled .bin or .uf2 files
+          path: .pio/build/henry-meshtastic-firmware/                 # Uploads the compiled .bin or .uf2 files
