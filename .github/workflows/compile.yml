@@ -1,0 +1,26 @@
+name: Compile Custom Meshtastic Firmware
+
+on:
+  workflow_dispatch: # Allows you to trigger the build manually with a single click
+
+jobs:
+  build-custom-hardware:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive' # Automatically pulls down required Meshtastic dependencies
+
+      - name: Run Cloud Compilation
+        uses: meshtastic/gh-action-firmware@main
+        with:
+          pio_platform: esp32              # Change to nrf52 or rp2040 if your chip is different
+          pio_env: custom-esp32-board     # Change this to match your target environment label
+          pio_target: build
+
+      - name: Upload Finished Firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: custom-meshtastic-firmware
+          path: .pio/build/                 # Uploads the compiled .bin or .uf2 files
