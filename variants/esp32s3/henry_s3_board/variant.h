@@ -24,7 +24,4 @@
 
 // User Interface Inputs (Built-in Program Button)
 #define BUTTON_PIN 0             // GPIO 0 is the standard physical BOOT/PRG button on ESP32-S3 boards
-#define BUTTON_NEED_PULLUP true   // Internal pull-up ensures it registers correctly when pressed to GND
-
-// Optional Status LED (Optional: Change or comment out if your board lacks an LED)
-#define LED_PIN    15            
+#define BUTTON_NEED_PULLUP true   // Internal pull-up ensures it registers correctly when pressed to GND         
