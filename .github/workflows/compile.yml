@@ -16,11 +16,11 @@ jobs:
         uses: meshtastic/gh-action-firmware@main
         with:
           pio_platform: esp32              # Change to nrf52 or rp2040 if your chip is different
-          pio_env: custom-esp32-board     # Change this to match your target environment label
+          pio_env: henry-esp32-board     # Change this to match your target environment label
           pio_target: build
 
       - name: Upload Finished Firmware
         uses: actions/upload-artifact@v4
         with:
-          name: custom-meshtastic-firmware
+          name: henry-meshtastic-firmware
           path: .pio/build/                 # Uploads the compiled .bin or .uf2 files
