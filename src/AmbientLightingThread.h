@@ -40,6 +40,18 @@ class AmbientLightingThread : public concurrency::OSThread
 #endif
 
 #ifdef HAS_NEOPIXEL
+// Add these lines to fix your WS2812 definition
+#ifndef NEOPIXEL_DATA
+#define NEOPIXEL_DATA 48
+#endif
+
+#ifndef NEOPIXEL_COUNT
+#define NEOPIXEL_COUNT 1  // Adjust if you have multiple LEDs
+#endif
+
+#ifndef NEOPIXEL_TYPE
+#define NEOPIXEL_TYPE (NEO_GRB + NEO_KHZ800)  // Correct setting for WS2812
+#endif
     Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NEOPIXEL_COUNT, NEOPIXEL_DATA, NEOPIXEL_TYPE);
 #endif
 
