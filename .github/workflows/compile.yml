@@ -14,6 +14,9 @@ jobs:
 
       - name: Run Cloud Compilation
         uses: meshtastic/gh-action-firmware@main
+        # Injecting the missing WS2812 NeoPixel definitions here via PLATFORMIO_BUILD_FLAGS
+        env:
+          PLATFORMIO_BUILD_FLAGS: "-DNEOPIXEL_DATA=48 -DNEOPIXEL_COUNT=1 -DNEOPIXEL_TYPE=NEO_GRB+NEO_KHZ800"
         with:
           pio_platform: esp32s3              # Change to nrf52 or rp2040 if your chip is different
           pio_env: henry-s3-board     # Change this to match your target environment label
@@ -23,4 +26,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: custom-meshtastic-firmware
-          path: .pio/build/henry-s3-board/                 # Uploads the compiled .bin or .uf2 files
+          path: .pio/build/henry-s3-board/
+
