@@ -39,7 +39,7 @@
 #define I2C_SCL 17
 
 // Opt out of optional display hardware configurations 
-#undef SCREEN_RESET
+#undef SCREEN_RESET -1
 #undef SCREEN_TRANSITION_CLOCK
 
 // User Interface Inputs (Built-in Program Button)
