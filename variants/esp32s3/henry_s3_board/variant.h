@@ -6,6 +6,9 @@
 // Hardware layout tracking definitions for Compiler
 #define TARGET_CUSTOM
 // Note: PRIVATE_HW removed from here to eliminate the compiler redefinition warning
+// UART
+#define UART_TX 43
+#define UART_RX 44
 
 // LoRa Hardware Pin Mapping
 #define USE_SX1262
